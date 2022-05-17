@@ -1,15 +1,11 @@
-import { setupApi, pycApi } from "./services/api";
+import { setupApi, pycApi } from './services/api';
 
-import {
-  ApiKeys,
-  InitiatePaymentPayload,
-  ProcessPaymentPayload,
-} from "./utils/types";
+import { ApiKeys, InitiatePaymentPayload, ProcessPaymentPayload } from './utils/types';
 
 class Checkout {
   private apiKeys: ApiKeys = {
-    publicKey: "",
-    secretKey: "",
+    publicKey: '',
+    secretKey: '',
   };
 
   constructor(apiKeys: ApiKeys) {
@@ -19,7 +15,7 @@ class Checkout {
   async initiateTransaction(payload: InitiatePaymentPayload): Promise<any> {
     try {
       await setupApi(this.apiKeys.publicKey);
-      const response = await pycApi.post("payments/initiate", payload);
+      const response = await pycApi.post('payments/initiate', payload);
       return response.data;
     } catch (err) {
       return err;
@@ -29,9 +25,7 @@ class Checkout {
   async getInvoiceDetails(payload: string): Promise<any> {
     try {
       await setupApi(this.apiKeys.publicKey);
-      const response = await pycApi.get(
-        `payments/details?invoice_id=${payload}`
-      );
+      const response = await pycApi.get(`payments/details?invoice_id=${payload}`);
       return response.data;
     } catch (err) {
       return err;
@@ -58,10 +52,7 @@ class Checkout {
     }
   }
 
-  async processPayment(
-    url: string,
-    payload: ProcessPaymentPayload
-  ): Promise<any> {
+  async processPayment(url: string, payload: ProcessPaymentPayload): Promise<any> {
     try {
       await setupApi(this.apiKeys.publicKey);
       const response = await pycApi.post(`${url}/process`, payload);
