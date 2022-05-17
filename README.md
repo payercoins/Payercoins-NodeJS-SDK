@@ -28,7 +28,7 @@ NOTE: There are both live and test section and both of them have live and test(p
 
 ## Payment
 
-```Initialize Payment```
+`Initialize Payment`
 
 This describes how to allow your customers to initiate payments transaction transfer.
 
@@ -37,7 +37,7 @@ const Payercoins = require('payercoins-node-sdk');
 
 const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
 
-const initiateTransaction = async () => {
+const initiatePayment = async () => {
     try {
         const initiate_payment_payload = {
             currency?: [], //BTC, ETH, USDT(ETH), USDT(TRX)
@@ -60,8 +60,7 @@ const initiateTransaction = async () => {
 }
 ```
 
-
-```Confirm Payment```
+`Confirm Payment`
 
 This describes how to allow you confirm your customers payment transaction transfer after payment is made.
 
@@ -70,17 +69,17 @@ const Payercoins = require('payercoins-node-sdk');
 
 const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
 
-const confirm_payment = async () => {
-    try {
-        const verify_payment_payload = {
-            invoice_id: 'invoice_id', //id generate when you initiate payment
-            };
+const confirmPayment = async () => {
+  try {
+    const confirm_payment_payload = {
+      invoice_id: 'invoice_id', //id generate when you initiate payment
+    };
 
-        const response = await payercoins.Checkout.confirmPayment(verify_payment_payload);
+    const response = await payercoins.Checkout.confirmPayment(confirm_payment_payload);
 
-        console.log(response);
-        } catch(error) {
-        console.log(error);
-    }
-}
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
 ```
