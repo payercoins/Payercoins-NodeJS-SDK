@@ -1,4 +1,4 @@
-# # Payercoins v1 NodeJS SDK
+### Payercoins v1 NodeJS SDK
 
 #### How to use
 
