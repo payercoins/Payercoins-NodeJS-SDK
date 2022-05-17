@@ -1,16 +1,26 @@
-# Payercoins NodeJS SDK.
+# # Payercoins v1 NodeJS SDK
 
+#### How to use
 
-Method exposed in our SDK
+`npm install payercoins-node-sdk`
 
+```
+const Payercoins = require('payercoins-node-sdk');
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+```
 
-Initialize Payment 
+Use TEST API keys for testing and LIVE API keys for production.
 
-Verify Payment 
+NOTE: There are both live and test section and both of them have live and test(public and secret key) respectively.
 
+## Payercoins Method exposed by the sdk
 
+1. Payment
 
-# Payout
+- Initialize Payment
+- Verify Payment
 
-Crypto to crypto 
+2. Payout
 
+- Crypto to crypto
+- Crypto to fiat
