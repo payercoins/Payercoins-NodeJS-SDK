@@ -4,8 +4,9 @@
 
 `npm install payercoins-node-sdk`
 
-```
+```js
 const Payercoins = require('payercoins-node-sdk');
+
 const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
 ```
 
@@ -24,3 +25,62 @@ NOTE: There are both live and test section and both of them have live and test(p
 
 - Crypto to crypto
 - Crypto to fiat
+
+## Payment
+
+```Initialize Payment```
+
+This describes how to allow your customers to initiate payments transaction transfer.
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+
+const initiateTransaction = async () => {
+    try {
+        const initiate_payment_payload = {
+            currency?: [], //BTC, ETH, USDT(ETH), USDT(TRX)
+            amount: 150,
+            payment_type: 'crypto', //crypto, fiat
+            customer_name: 'John Doe',
+            customer_email: 'john_doe@gmail.com'
+            description?: 'this is a test payment',
+            redirect_url?: string,
+            invoice_id?: string,
+            callback_url?: string, //optional
+        }
+
+        const response = await payercoins.Checkout.initiateTransaction(initiate_payment_payload);
+
+        console.log(response);
+    } catch(error) {
+        console.log(error);
+    }
+}
+```
+
+
+```Confirm Payment```
+
+This describes how to allow you confirm your customers payment transaction transfer after payment is made.
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+
+const confirm_payment = async () => {
+    try {
+        const verify_payment_payload = {
+            invoice_id: 'invoice_id', //id generate when you initiate payment
+            };
+
+        const response = await payercoins.Checkout.confirmPayment(verify_payment_payload);
+
+        console.log(response);
+        } catch(error) {
+        console.log(error);
+    }
+}
+```

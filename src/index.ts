@@ -1,5 +1,5 @@
-import Checkout from "./checkout";
-import * as Types from "./utils/types";
+import Checkout from './checkout';
+import * as Types from './utils/types';
 
 /*
  * Payercoins NodeJS SDK
@@ -11,8 +11,8 @@ import * as Types from "./utils/types";
 
 class Payercoins {
   private config: Types.ApiKeys = {
-    publicKey: "",
-    secretKey: "",
+    publicKey: '',
+    secretKey: '',
   };
 
   Checkout: Checkout;
