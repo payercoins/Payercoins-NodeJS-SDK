@@ -83,3 +83,27 @@ const confirmPayment = async () => {
   }
 };
 ```
+
+`Process Payment`
+
+This describes how to allow you process your customers payment transaction transfer after payment is made.
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+
+const fetchInvoiceDetails = async () => {
+  try {
+    const invoice_details_payload = {
+      invoice_id: 'invoice_id', //id generate when you initiate payment
+    };
+
+    const response = await payercoins.Checkout.getInvoiceDetails(invoice_details_payload);
+
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
