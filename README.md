@@ -23,8 +23,8 @@ NOTE: There are both live and test section and both of them have live and test(p
 
 2. Payout
 
-- Crypto to crypto
-- Crypto to fiat
+- Crypto to crypto (Coming soon)
+- Crypto to fiat (Coming soon)
 
 ## Payment
 
