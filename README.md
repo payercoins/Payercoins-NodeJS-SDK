@@ -86,7 +86,7 @@ const confirmPayment = async () => {
 
 `Fetch Invoice Details`
 
-This describes how to allow you process your customers payment transaction transfer after payment is made.
+This describes how to allow you get your customers payment invoice details transaction after payment is made.
 
 ```js
 const Payercoins = require('payercoins-node-sdk');
