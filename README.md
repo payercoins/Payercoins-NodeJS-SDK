@@ -84,7 +84,7 @@ const confirmPayment = async () => {
 };
 ```
 
-`Process Payment`
+`Fetch Invoice Details`
 
 This describes how to allow you process your customers payment transaction transfer after payment is made.
 
