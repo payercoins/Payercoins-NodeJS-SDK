@@ -16,7 +16,7 @@ NOTE: There are both live and test section and both of them have live and test(p
 
 ## Payercoins Method exposed by the sdk
 
-1. Payment
+1. Accept Payment
 
 - Initialize Payment
 - Verify Payment
@@ -26,7 +26,7 @@ NOTE: There are both live and test section and both of them have live and test(p
 - Crypto to crypto (Coming soon)
 - Crypto to fiat (Coming soon)
 
-## Payment
+## Accept Crypto Payment
 
 `Initialize Payment`
 
