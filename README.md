@@ -40,15 +40,15 @@ const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY)
 const initiatePayment = async () => {
     try {
         const initiate_payment_payload = {
-            currency?: [], //BTC, ETH, USDT(ETH), USDT(TRX)
+            currency?: 'ethereum', //ethereum, bitcoin, usdt-eth. If not provided, the default activated currency type will be used.
             amount: 150,
             payment_type: 'crypto', //crypto, fiat
-            customer_name: 'John Doe',
-            customer_email: 'john_doe@gmail.com'
-            description?: 'this is a test payment',
-            redirect_url?: string,
-            invoice_id?: string,
-            callback_url?: string, //optional
+            customer_name: 'John Doe', // this is the customer name
+            customer_email: 'john_doe@gmail.com' // this is the customer email
+            description?: 'this is a test payment', // this is the payment description
+            redirect_url?: string, // optional
+            invoice_id?: string, // optional - unique identifier for your payment and minLength 8, else we will automatically generate one
+            callback_url?: string, //optional. This is the url where the customer will be redirected to after payment is completed.
         }
 
         const response = await payercoins.Checkout.initiateTransaction(initiate_payment_payload);
