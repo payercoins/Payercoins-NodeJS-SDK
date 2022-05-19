@@ -1,3 +1,5 @@
+![Logo](./src/images/Payercoins%20Logo.png)
+
 ### Payercoins v1 NodeJS SDK
 
 #### How to use
