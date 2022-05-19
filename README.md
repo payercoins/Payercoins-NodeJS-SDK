@@ -109,3 +109,23 @@ const fetchInvoiceDetails = async () => {
   }
 };
 ```
+
+`Fetch Payment Details By Reference`
+
+This describes how to allow you get your customers payment invoice details transaction by using the reference after payment is made.
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+
+const fetchInvoiceDetailsByReference = async () => {
+  try {
+    const response = await payercoins.Checkout.getPaymentDetailsByReference();
+
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
