@@ -4,7 +4,7 @@ export interface ApiKeys {
 }
 
 export interface InitiatePaymentPayload {
-  currency?: [];
+  currency?: Array<string>;
   amount: number;
   payment_type: string;
   customer_name: string;

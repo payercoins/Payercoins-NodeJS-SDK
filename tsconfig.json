@@ -1,11 +1,12 @@
 {
     "compilerOptions": {
-      "target": "es5",
       "module": "commonjs",
+      "moduleResolution": "node",
       "declaration": true,
       "outDir": "dist",
-      "lib": ["es6", "dom", "es2017"],
-      "strict": true
+      "target": "es2019",
+      "lib": ["dom", "es2019", "esnext"],
+      "forceConsistentCasingInFileNames": true,
     },
     "include": ["src"],
     "exclude": ["node_modules", "**/__tests__/*"]
