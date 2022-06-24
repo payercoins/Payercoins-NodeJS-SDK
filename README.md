@@ -9,7 +9,7 @@
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
-const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 ```
 
 Use TEST API keys for testing and LIVE API keys for production.
@@ -37,7 +37,7 @@ This describes how to allow your customers to initiate payments transaction tran
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
-const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
 const initiatePayment = async () => {
     try {
@@ -69,7 +69,7 @@ This describes how to allow you confirm your customers payment transaction trans
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
-const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
 const confirmPayment = async () => {
   try {
@@ -93,7 +93,7 @@ This describes how to allow you get your customers payment invoice details trans
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
-const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
 const fetchInvoiceDetails = async () => {
   try {
@@ -117,7 +117,7 @@ This describes how to allow you get your customers payment invoice details trans
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
-const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_PRIVATE_KEY);
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
 const fetchInvoiceDetailsByReference = async () => {
   try {
