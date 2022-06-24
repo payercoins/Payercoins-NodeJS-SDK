@@ -73,12 +73,31 @@ const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
 const confirmPayment = async () => {
   try {
-    const confirm_payment_payload = {
-      invoice_id: 'invoice_id', //id generate when you initiate payment
-    };
+    const confirm_payment_payload = "invoice_id", //id generate when you initiate payment
 
     const response = await payercoins.Checkout.confirmPayment(confirm_payment_payload);
 
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+`Process Payment`
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
+
+const confirmPayment = async () => {
+  try {
+    const url = `${baseUrl}/sandbox/payment/:reference/`;
+    const process_payment_payload = {
+      crypto: 'string', // 18b76dd3-081a-493b-96ff-7270573d349e
+    };
+    const response = payercoins.Checkout.processPayment(url, process_payment_payload);
     console.log(response);
   } catch (error) {
     console.log(error);
