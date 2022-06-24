@@ -1,6 +1,6 @@
 {
   "name": "payercoins-node-sdk",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Official Payercoins nodejs sdk",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,7 +22,7 @@
     "type": "git",
     "url": "git+https://github.com/Grazac-Project/payercoins-node-sdk.git"
   },
-  "author": "Toheeb Olayemi <olayemitoheeblekan@gmail.com>",
+  "author": "Toheeb Olayemi <olayemitoheeblekan@gmail.com>, Abiodun Alao <alao.abiodun.abdulrahman@gmail.com>",
   "license": "MIT",
   "keywords": [
     "payercoins",
