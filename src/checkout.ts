@@ -65,7 +65,7 @@ class Checkout {
   async confirmPayment(id: string): Promise<any> {
     try {
       await setupApi(this.apiKeys.publicKey);
-      const response = await pycApi.get(`/payments/verify?invoice_id=${id}`);
+      const response = await pycApi.get(`payments/verify?invoice_id=${id}`);
       return response.data;
     } catch (err) {
       return err;
