@@ -23,7 +23,12 @@ NOTE: There are both live and test section and both of them have live and test(p
 - Initialize Payment
 - Verify Payment
 
-2. Payout
+2. Fetch Payment
+
+- Fetch Invoice details
+- Fetch Payment details by Reference ID
+
+3. Cancel Payment
 
 - Crypto to crypto (Coming soon)
 - Crypto to fiat (Coming soon)
@@ -62,21 +67,61 @@ const initiatePayment = async () => {
 }
 ```
 
-`Confirm Payment`
+## Fetch Payment
 
-This describes how to allow you confirm your customers payment transaction transfer after payment is made.
+`Fetch Invoice Details`
+
+This describes how to allow your customers to fetch payments details by invoice_id.
 
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
 const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
-const confirmPayment = async () => {
+const fetchDetailsInvoice = async () => {
   try {
-    const confirm_payment_payload = "invoice_id", //id generate when you initiate payment
+    const payload = ''; // invoice_id
+    const response = await payercoins.Checkout.getInvoiceDetails(payload);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
 
-    const response = await payercoins.Checkout.confirmPayment(confirm_payment_payload);
+`Fetch Payment Details By Reference`
 
+This describes how to allow your customers to fetch payments details by reference.
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
+
+const fetchPaymentDetailsByReference = async () => {
+  try {
+    const url = ''; // url
+    const response = await payercoins.Checkout.getPaymentDetailsByReference(url);
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+};
+```
+
+`Cancel Payment`
+
+This describes how to allow your customers to cancel payments.
+
+```js
+const Payercoins = require('payercoins-node-sdk');
+
+const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
+
+const cancelPayment = async () => {
+  try {
+    const url = ''; // url
+    const response = await payercoins.Checkout.cancelPayment(url);
     console.log(response);
   } catch (error) {
     console.log(error);
@@ -91,11 +136,11 @@ const Payercoins = require('payercoins-node-sdk');
 
 const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
-const confirmPayment = async () => {
+const processPayment = async () => {
   try {
-    const url = `${baseUrl}/sandbox/payment/:reference/`;
+    const url = ``; // url
     const process_payment_payload = {
-      crypto: 'string', // 18b76dd3-081a-493b-96ff-7270573d349e
+      crypto: 'string', // uuid of crypto
     };
     const response = payercoins.Checkout.processPayment(url, process_payment_payload);
     console.log(response);
@@ -105,42 +150,20 @@ const confirmPayment = async () => {
 };
 ```
 
-`Fetch Invoice Details`
+`Confirm Payment`
 
-This describes how to allow you get your customers payment invoice details transaction after payment is made.
-
-```js
-const Payercoins = require('payercoins-node-sdk');
-
-const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
-
-const fetchInvoiceDetails = async () => {
-  try {
-    const invoice_details_payload = {
-      invoice_id: 'invoice_id', //id generate when you initiate payment
-    };
-
-    const response = await payercoins.Checkout.getInvoiceDetails(invoice_details_payload);
-
-    console.log(response);
-  } catch (error) {
-    console.log(error);
-  }
-};
-```
-
-`Fetch Payment Details By Reference`
-
-This describes how to allow you get your customers payment invoice details transaction by using the reference after payment is made.
+This describes how to allow you confirm your customers payment transaction transfer after payment is made.
 
 ```js
 const Payercoins = require('payercoins-node-sdk');
 
 const payercoins = new Payercoins(PAYERCOINS_PUBLIC_KEY, PAYERCOINS_SECRET_KEY);
 
-const fetchInvoiceDetailsByReference = async () => {
+const confirmPayment = async () => {
   try {
-    const response = await payercoins.Checkout.getPaymentDetailsByReference();
+    const confirm_payment_payload = "invoice_id", //id generate when you initiate payment
+
+    const response = await payercoins.Checkout.confirmPayment(confirm_payment_payload);
 
     console.log(response);
   } catch (error) {
